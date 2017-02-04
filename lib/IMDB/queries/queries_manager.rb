@@ -13,9 +13,9 @@ class QueriesManager
   end
 
   def self.update(data)
-    table_name, field, value, query = data[:table_name], data[:field], data[:value], data[:query]
+    table_name, field, value, criterion = data[:table_name], data[:field], data[:value], data[:criterion]
     table = Database.find_table(table_name)
-    table.update(field, value, query)
+    table.update(field, value, criterion)
   end
 
   def self.retrieve(data)

@@ -6,8 +6,6 @@ class Delete
     { table_name: table, criterion: criterion }
   end
 
-  private
-
   def self.get_table(statement)
     table = (/(?<=DELETE FROM)\s(?'table'\w+)\s(?=WHERE)/.match statement)[:table]
     table

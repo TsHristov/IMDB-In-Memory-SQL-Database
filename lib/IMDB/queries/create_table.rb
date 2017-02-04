@@ -7,8 +7,6 @@ class CreateTable
     { table_name: table, columns: columns }
   end
 
-  private
-
   def self.get_table(statement)
     table = (/(?<=CREATE TABLE)\s(?'table'\w+)/.match statement)[:table]
     table

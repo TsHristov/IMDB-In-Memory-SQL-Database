@@ -3,12 +3,12 @@ class Update
     table = get_table(statement)
     field = get_field(statement)
     value = get_value(statement)
-    query = get_query(statement)
+    criterion = get_criterion(statement)
     {
       table_name: table,
       field: field,
       value: value,
-      query: query
+      criterion: criterion
     }
   end
 
@@ -29,10 +29,10 @@ class Update
     value
   end
 
-  def self.get_query(statement)
-    query = (/(?<=WHERE)\s(?'query'\w+.+);$/.match statement)[:query]
-    query = query.split(' = ')
-    query[0] = query[0].to_sym
-    Hash[*query]
+  def self.get_criterion(statement)
+    criterion = (/(?<=WHERE)\s(?'criterion'\w+.+);$/.match statement)[:criterion]
+    criterion = criterion.split(' = ')
+    criterion[0] = criterion[0].to_sym
+    Hash[*criterion]
   end
 end
