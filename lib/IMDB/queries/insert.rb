@@ -1,5 +1,5 @@
+# Class which parses SQL INSERT statements
 class Insert
-
   def self.parse(statement)
     table   = get_table(statement)
     columns = get_columns(statement)

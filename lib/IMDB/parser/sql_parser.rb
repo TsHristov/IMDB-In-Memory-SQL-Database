@@ -5,8 +5,10 @@ require 'IMDB/queries/select'
 require 'IMDB/queries/update'
 require 'IMDB/queries/queries_manager'
 
-
+# Module which parses SQL statements
 module SQLParser
+  # @param statement [String] the SQL statement to be parsed
+  # @raise [DataBase::InvalidQuery] when the SQL statement is not valid
   def parse(statement)
     case statement
     when /CREATE/

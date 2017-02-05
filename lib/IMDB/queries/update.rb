@@ -1,3 +1,4 @@
+# Class which parses SQL UPDATE statements
 class Update
   def self.parse(statement)
     table = get_table(statement)

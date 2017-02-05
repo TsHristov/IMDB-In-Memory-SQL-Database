@@ -1,5 +1,6 @@
 require 'IMDB/table/table'
 
+# Class which parses SQL CREATE statements
 class CreateTable
   def self.parse(statement)
     table   = get_table(statement)

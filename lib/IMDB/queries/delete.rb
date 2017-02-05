@@ -1,5 +1,5 @@
+# Class which parses SQL DELETE statements
 class Delete
-
   def self.parse(statement)
     table = get_table(statement)
     criterion = get_criterion(statement)
