@@ -12,6 +12,12 @@ module DatabaseExceptions
       super "Invalid query: #{query}"
     end
   end
+
+  # class NoRecordFound < StandardError
+  #   def initialize(query)
+  #     super "No record matches: #{query}"
+  #   end
+  # end
 end
 
 class Database

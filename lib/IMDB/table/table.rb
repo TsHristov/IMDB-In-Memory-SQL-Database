@@ -12,19 +12,28 @@ module CRUD
     base.extend ClassMethods
   end
 
-
-  def insert(columns, values)
-    record = DataRecord.new(columns, values)
+ # Inserts a DataRecord into the table
+ #
+ # Params:
+ # -record: DataRecord to be inserted
+  def insert(record)
     @data << record
   end
 
-  # DOES NOT WORK PROPERLY!
-  # !!!!!!!!!!!!!!!!!!!!!!
+  # Updates records`s fields, if records match query
+  #
+  # Params:
+  # -field: the record`s field to be updated
+  # -value: the new value, which is to be set
+  # -query: condition which filters the records to be updated
+  # Example:
+  #       "UPDATE students SET name = 'FirstName' WHERE id = 1;"
+  #       -field = :name
+  #       -value = "'FirstName'"
+  #       -query = { id: "1" }
   def update(field, value, query)
     records = find(query)
-    print records
     records.each { |record| record.send "#{field}=", value }
-    print find(query)
   end
 
   def retrieve(columns=[], query)
@@ -36,8 +45,12 @@ module CRUD
     result
   end
 
+  # Deletes records from the table
+  #
+  # Params:
+  # -records: An array of DataRecords
   def delete(records)
-    records.each { |record| @data.delete(record) }
+      Array(records).each { |record| @data.delete(record) }
   end
 end
 
@@ -53,6 +66,12 @@ class Table
 
   def find(query)
     @data.select { |record| record.match_query(query) }
+  end
+
+  def ==(table)
+    table.name    == name &&
+    table.columns == columns &&
+    table.data    == data
   end
 
 end

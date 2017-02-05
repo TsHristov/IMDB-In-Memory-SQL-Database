@@ -6,7 +6,7 @@ describe Update do
 
   it 'gets the table`s field to be updated' do
     statement = "UPDATE students SET name = 'STUDENT NAME' WHERE id = 1;"
-    field = "name"
+    field = :name
     expect(Update.get_field(statement)).to eq(field)
   end
 
@@ -26,7 +26,7 @@ describe Update do
     statement = "UPDATE students SET name = 'STUDENT NAME' WHERE id = 1;"
     parsed_data = {
                     table_name: 'students',
-                    field: "name",
+                    field: :name,
                     value: "'STUDENT NAME'",
                     criterion: { id: "1" }
                   }

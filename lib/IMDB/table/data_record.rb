@@ -1,5 +1,5 @@
 class DataRecord
-  attr_accessor :columns, :values
+  attr_reader :columns, :values
 
   def initialize(columns, values)
     @columns = columns.map { |column| column.to_sym }
@@ -23,5 +23,10 @@ class DataRecord
 
   def update(field, value)
     send "#{field}=", value
+  end
+
+  def ==(data_record)
+    data_record.columns == columns &&
+    data_record.values  == values
   end
 end

@@ -1,4 +1,6 @@
 require 'IMDB/table/table'
+require 'IMDB/table/data_record'
+
 
 class QueriesManager
   def self.create_table(data)
@@ -8,8 +10,9 @@ class QueriesManager
 
   def self.insert(data)
     table_name, columns, values = data[:table_name], data[:columns], data[:values]
-    table = Database.find_table(table_name)
-    table.insert(columns, values)
+    table  = Database.find_table(table_name)
+    record = DataRecord.new(columns, values)
+    table.insert(record)
   end
 
   def self.update(data)

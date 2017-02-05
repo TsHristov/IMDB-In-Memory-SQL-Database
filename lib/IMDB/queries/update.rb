@@ -21,7 +21,7 @@ class Update
 
   def self.get_field(statement)
     field = (/(?<=SET)\s((?'field'\w+).+)\s(?=WHERE)/.match statement)[:field]
-    field
+    field.to_sym
   end
 
   def self.get_value(statement)
