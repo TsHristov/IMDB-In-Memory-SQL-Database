@@ -39,7 +39,7 @@ class DataRecord
   #        record.match_query(query) #=> true
   def match_query(query)
     return true if query == {}
-    values.one? { |key, value| query[key] == value }
+    query.all? { |key, value| values[key] == value }
   end
 
   # Updates the record`s field with a given value

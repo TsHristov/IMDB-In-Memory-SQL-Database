@@ -8,10 +8,7 @@ describe DataRecord do
   describe '#new' do
 
     it 'creates a data record' do
-      data    = {
-                 id: "1",
-                 name: "'FirstName'",
-                }
+      data = { id: "1", name: "'FirstName'" }
       expect(@record.values).to eq(data)
     end
 
@@ -53,6 +50,15 @@ describe DataRecord do
   end
 
   describe "#match_query" do
-    
+    it 'checks whether the record has key, value pair matching query' do
+      query = { id: "1" }
+      expect(@record.match_query(query)).to be(true)
+      query = {}
+      expect(@record.match_query(query)).to be(true)
+      query = { id: "1", name: "'FirstName'" }
+      expect(@record.match_query(query)).to be(true)
+      query = { id: "2", name: "'FirstName'" }
+      expect(@record.match_query(query)).to be(false)
+    end
   end
 end
