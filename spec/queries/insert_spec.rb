@@ -6,7 +6,7 @@ describe Insert do
 
   it 'gets the columns of the table' do
     statement = "INSERT INTO students (id, name) VALUES (1, 'Student');"
-    columns = ["id", "name"]
+    columns = [:id, :name]
     expect(Insert.get_columns(statement)).to eq(columns)
   end
 
@@ -20,7 +20,7 @@ describe Insert do
     statement = "INSERT INTO students (id, name) VALUES (1, 'Student');"
     parsed_data = {
                    table_name: 'students',
-                   columns: ["id", "name"],
+                   columns: [:id, :name],
                    values: ["1", "'Student'"]
                   }
     expect(Insert.parse(statement)).to eq(parsed_data)

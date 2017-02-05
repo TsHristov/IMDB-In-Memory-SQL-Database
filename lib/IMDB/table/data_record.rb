@@ -1,6 +1,7 @@
+# Class which represents a row (data record) from a table in the database.
 class DataRecord
   attr_reader :columns, :values
-
+  
   # Creates new DataRecord object
   # @param columns [Array] symbols, which represent the table columns
   # @param values [Array]  values, with which to be initialized the DataRecord object

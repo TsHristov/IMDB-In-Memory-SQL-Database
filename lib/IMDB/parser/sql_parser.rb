@@ -7,6 +7,8 @@ require 'IMDB/queries/queries_manager'
 
 # Module which parses SQL statements
 module SQLParser
+  # Partialy parses the SQL statement calling each statement`s corresponding class parser
+  # and passing the parsed data for execution to QueriesManager.
   # @param statement [String] the SQL statement to be parsed
   # @raise [DataBase::InvalidQuery] when the SQL statement is not valid
   def parse(statement)

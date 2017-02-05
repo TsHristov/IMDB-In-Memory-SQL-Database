@@ -28,7 +28,9 @@ module CRUD
   end
 
   # Retrieves data from the table
-  # -
+  # @param columns [Array<Symbol>] the columns to be returned
+  # @param query [Hash] the condition on which to retrieve the data
+  # @return [Array<Hash>] an array of hashes, consisting of the columns returned
   def retrieve(columns=[], query)
     records = find(query)
     result = []
@@ -69,7 +71,7 @@ class Table
     @data    = []
   end
 
-  # Finds all records matching query
+  # Finds all records in the table matching query
   # @param query[Hash]
   # @return [Array<DataRecord>, Array] all found DataRecords or an empty array if none found
   def find(query)
