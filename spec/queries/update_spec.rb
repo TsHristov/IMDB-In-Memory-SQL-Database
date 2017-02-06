@@ -1,3 +1,5 @@
+Update = IMDB::Queries::Update
+
 describe Update do
   it 'gets the name of the table' do
     statement = "UPDATE students SET name = 'STUDENT NAME' WHERE id = 1;"

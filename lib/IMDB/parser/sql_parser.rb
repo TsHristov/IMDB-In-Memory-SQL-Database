@@ -5,31 +5,35 @@ require 'IMDB/queries/select'
 require 'IMDB/queries/update'
 require 'IMDB/queries/queries_manager'
 
-# Module which parses SQL statements
-module SQLParser
-  # Partialy parses the SQL statement calling each statement`s corresponding class parser
-  # and passing the parsed data for execution to QueriesManager.
-  # @param statement [String] the SQL statement to be parsed
-  # @raise [DataBase::InvalidQuery] when the SQL statement is not valid
-  def parse(statement)
-    case statement
-    when /CREATE/
-      data = CreateTable.parse(statement)
-      QueriesManager.create_table(data)
-    when /INSERT/
-      data = Insert.parse(statement)
-      QueriesManager.insert(data)
-    when /UPDATE/
-      data = Update.parse(statement)
-      QueriesManager.update(data)
-    when /SELECT/
-      data = Select.parse(statement)
-      QueriesManager.retrieve(data)
-    when /DELETE/
-      data = Delete.parse(statement)
-      QueriesManager.delete(data)
-    else
-      raise Database::InvalidQuery.new(statement)
+module IMDB
+  module Parser
+    # Module which parses SQL statements
+    module SQLParser
+      # Partialy parses the SQL statement calling each statement`s corresponding class parser
+      # and passing the parsed data for execution to QueriesManager.
+      # @param statement [String] the SQL statement to be parsed
+      # @raise [DataBase::InvalidQuery] when the SQL statement is not valid
+      def parse(statement)
+        case statement
+        when /CREATE/
+          data = Queries::CreateTable.parse(statement)
+          Queries::QueriesManager.create_table(data)
+        when /INSERT/
+          data = Queries::Insert.parse(statement)
+          Queries::QueriesManager.insert(data)
+        when /UPDATE/
+          data = Queries::Update.parse(statement)
+          Queries::QueriesManager.update(data)
+        when /SELECT/
+          data = Queries::Select.parse(statement)
+          Queries::QueriesManager.retrieve(data)
+        when /DELETE/
+          data = Queries::Delete.parse(statement)
+          Queries::QueriesManager.delete(data)
+        else
+          raise Database::InvalidQuery.new(statement)
+        end
+      end
     end
   end
 end

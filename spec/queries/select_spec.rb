@@ -1,3 +1,5 @@
+Select = IMDB::Queries::Select
+
 describe Select do
   it 'gets the name of the table' do
     statement = "SELECT id, name FROM students;"

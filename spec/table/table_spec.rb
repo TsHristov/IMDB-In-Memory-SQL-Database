@@ -1,5 +1,6 @@
+Table = IMDB::Table::Table
+
 describe Table do
-  # => create a Database connection
   before(:each) do
     table_name = 'studens'
     columns = {
@@ -27,7 +28,7 @@ describe Table do
                 }
       table = Table.new table_name, columns
       Table.create(table_name, columns)
-      expect(Database.tables[table_name]).to eq(table)
+      expect(IMDB::Database.tables[table_name]).to eq(table)
     end
   end
 

@@ -1,3 +1,5 @@
+Delete = IMDB::Queries::Delete
+
 describe Delete do
   it 'gets the name of the table' do
     statement = "DELETE FROM students WHERE id = 1;"

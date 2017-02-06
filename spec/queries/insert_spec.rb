@@ -1,3 +1,5 @@
+Insert = IMDB::Queries::Insert
+
 describe Insert do
   it 'gets the name of the table' do
     statement = "INSERT INTO students (id, name) VALUES (1, 'Student');"

@@ -1,3 +1,5 @@
+DataRecord = IMDB::Table::DataRecord
+
 describe DataRecord do
   before(:each) do
     columns = [:id, :name]

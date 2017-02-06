@@ -1,3 +1,5 @@
+CreateTable = IMDB::Queries::CreateTable
+
 describe CreateTable do
 
   it 'gets the name of the table' do
