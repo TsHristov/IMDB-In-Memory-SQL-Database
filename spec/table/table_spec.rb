@@ -13,7 +13,7 @@ describe Table do
   before(:each) do
     columns =  ["id", "name"]
     values  =  ["1", "'Student'"]
-    @first_record   = DataRecord.new columns, values
+    @first_record   =  DataRecord.new columns, values
     columns =  ["id", "name"]
     values  =  ["2", "'Another Student'"]
     @second_record  =  DataRecord.new columns, values
@@ -28,7 +28,7 @@ describe Table do
                 }
       table = Table.new table_name, columns
       Table.create(table_name, columns)
-      expect(IMDB::Database.tables[table_name]).to eq(table)
+      expect(IMDB::DB.tables[table_name]).to eq(table)
     end
   end
 

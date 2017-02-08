@@ -10,7 +10,7 @@ module IMDB
         # @param columns [Hash] table`s columns
         def create(table_name, columns)
           table = Table.new table_name, columns
-          Database.create_table(table)
+          DB.create_table(table)
         end
       end
 

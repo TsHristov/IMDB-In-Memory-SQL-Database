@@ -5,27 +5,12 @@ require 'IMDB/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "IMDB"
-  spec.version       = '0.0.0'
+  spec.version       = IMDB::VERSION
   spec.authors       = ["Tsvetan Hristov"]
   spec.email         = ["tsvetanhristov@yahoo.com"]
-
-  spec.summary       = " In-Memory SQL Database "
-  #spec.description   = %q{TODO: Write a longer description or delete this line.}
-  #spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
+  spec.summary       = " IMDB: In-Memory SQL Database "
   spec.files         = Dir.glob("{lib}/**/*")
-  # spec.bindir        = "exe"
-  # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"

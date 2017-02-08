@@ -1,4 +1,7 @@
 require 'spec_helper'
 
-describe IMDB do
+DB = IMDB::DB
+
+describe DB do
+  
 end
