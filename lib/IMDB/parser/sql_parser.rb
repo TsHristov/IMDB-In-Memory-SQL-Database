@@ -31,7 +31,7 @@ module IMDB
           data = Queries::Delete.parse(statement)
           Queries::QueriesManager.delete(data)
         else
-          raise Database::InvalidQuery.new(statement)
+          raise IMDB::DatabaseExceptions::InvalidQuery.new(statement)
         end
       end
     end

@@ -4,7 +4,7 @@ module IMDB
   module Table
     # Module to perform CRUD(Create, Read, Update, Delete) operations
     module CRUD
-      module ClassMethods
+      module TableClassMethods
         # Creates a new table in the Database
         # @param table_name [String] table`s name
         # @param columns [Hash] table`s columns
@@ -51,7 +51,7 @@ module IMDB
       private
 
       def self.included(base)
-        base.extend ClassMethods
+        base.extend TableClassMethods
       end
     end
 

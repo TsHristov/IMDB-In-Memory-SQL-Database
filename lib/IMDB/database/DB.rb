@@ -24,7 +24,7 @@ module IMDB
 
   # Class which represents the DB.
   class DB
-    include ::IMDB::Parser::SQLParser
+    include IMDB::Parser::SQLParser
     include DatabaseExceptions
 
     @tables = {}
@@ -35,7 +35,7 @@ module IMDB
       # Creates a table in the DB
       # @param table [Table] the table to be created
       def create_table(table)
-        raise TableExists.new(table) if @tables.has_key? table.name
+        raise IMDB::DatabaseExceptions::TableExists.new(table.name) if @tables.has_key? table.name
         @tables[table.name] = table
       end
 
@@ -47,7 +47,7 @@ module IMDB
       # @param table [String] the name of the table to be found
       # @return [Table]
       def find_table(table)
-        raise TableDoesNotExist.new(table) unless @tables[table]
+        raise IMDB::DatabaseExceptions::TableDoesNotExist.new(table) unless @tables[table]
         @tables[table]
       end
     end
